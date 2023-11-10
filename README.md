@@ -12,25 +12,25 @@
     <tbody>
         <tr>
             <td>GET</td>
-            <td>/</td>
+            <td><code>/</code></td>
             <td>Index page</td>
             <td></td>
         </tr>
         <tr>
             <td>GET</td>
-            <td>/pokemons/gallery</td>
+            <td><code>/pokemons/gallery</code></td>
             <td>Pokemon gallery with filters</td>
             <td></td>
         </tr>
         <tr>
             <td>GET</td>
-            <td>/pokemons/{id}</td>
+            <td><code>/pokemons/{id}</code></td>
             <td>Pokemon details</td>
             <td></td>
         </tr>
         <tr>
             <td>GET</td>
-            <td>/pokemons/gallery</td>
+            <td><code>/pokemons/gallery</code></td>
             <td>Teams gallery</td>
             <td></td>
         </tr>
