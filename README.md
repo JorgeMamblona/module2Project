@@ -1,7 +1,5 @@
 <h1> POKEMON </h1>
 
-
-
 <table>
     <thead>
         <th>HTTP Method</th>
@@ -128,14 +126,14 @@
             <td><code>/api/trainers</code></td>
             <td>API to request trainers</td>
             <td>API</td>
-            <td></td>
+            <td>✅</td>
         </tr>
         <tr>
             <td>GET</td>
             <td><code>/api/gyms</code></td>
             <td>API request gyms</td>
             <td>API</td>
-            <td></td>
+            <td>✅</td>
         </tr>
     </tbody>
 </table>
