@@ -1,0 +1,42 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-6 mt-4">
+
+            <h1>Create a Gym</h1>
+            <hr>
+
+            <form action="/gym/create" method="POST">
+
+                <div class="mb-3 row">
+                    <div class="col-12">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                        <div class="form-text">Required.</div>
+                    </div>
+                    <div class="col-12">
+                        <label for="description" class="form-label">Description</label>
+                        <input type="text" class="form-control" id="description" name="description">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="latitude" class="form-label">Latitude</label>
+                        <input type="text" class="form-control" id="latitude" name="latitude">
+                        <div class="form-text">Required.</div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="longitude" class="form-label">Longitude</label>
+                        <input type="text" class="form-control" id="longitude" name="longitude">
+                        <div class="form-text">Required.</div>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark block">Create Gym</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>

@@ -8,6 +8,10 @@ const gymSchema = new Schema(
             unique: true,
             trim: true
         },
+        description: {
+            type: String,
+            trim: true
+        },
         owner: {
             type: Schema.Types.ObjectId,
             ref: "User",
