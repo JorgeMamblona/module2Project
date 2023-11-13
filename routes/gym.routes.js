@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-//routes
-
+router.get("/gym-map", (req, res, next) => {
+    res.render('gym/map')
+})
 
 module.exports = router

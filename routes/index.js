@@ -17,8 +17,4 @@ module.exports = app => {
     const gymRoutes = require("./gym.routes")
     app.use("/gym", gymRoutes)
 
-    const mapRoutes = require("./map.routes")
-    app.use("/map", mapRoutes)
-
-
 }

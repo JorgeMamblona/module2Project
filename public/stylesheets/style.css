@@ -1,3 +1,8 @@
 .pokemonCard {
     width: 100%;
 }
+
+#gymMap {
+    height: 80vh;
+    background-color: red;
+}
