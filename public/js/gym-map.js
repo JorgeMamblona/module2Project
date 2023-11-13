@@ -4,6 +4,7 @@ let gymMap
 
 function init() {
     renderMap()
+    getGymsFromAPI()
 }
 function renderMap() {
     gymMap = new google.maps.Map(
@@ -13,4 +14,27 @@ function renderMap() {
             center: initialCoords
         }
     )
+}
+
+function getGymsFromAPI() {
+    gymService
+        .getAllGyms()
+        .then(gyms => printGymsMarkers(gyms.data))
+        .catch(err => console.log(err))
+}
+
+function printGymsMarkers(gyms) {
+    gyms.forEach(elm => {
+
+        const position = {
+            lat: elm.location.coordinates[1],
+            lng: elm.location.coordinates[0]
+        }
+
+        new google.maps.Marker({
+            map: gymMap,
+            position,
+            title: elm.name
+        })
+    })
 }
