@@ -1,16 +1,16 @@
 const express = require("express")
 const bcrypt = require("bcryptjs")
 const User = require("../models/User.model")
-const { isLoggedOut } = require("../middleware/route-guard")
+const { isLoggedOut, isLoggedIn } = require("../middleware/route-guard")
 const router = express.Router()
 const saltRounds = 10
 
 
-router.get("/register", (req, res, next) => {
+router.get("/register", isLoggedOut, (req, res, next) => {
     res.render("auth/register")
 })
 
-router.post("/register", (req, res, next) => {
+router.post("/register", isLoggedOut, (req, res, next) => {
 
     const { username, email, password: plainPassword } = req.body
     let { avatar } = req.body
@@ -24,7 +24,7 @@ router.post("/register", (req, res, next) => {
             console.log("creating user:", { username, email, password: hashedPassword, avatar })
             User.create({ username, email, password: hashedPassword, avatar })
         })
-        .then(() => res.redirect("/"))
+        .then(() => res.redirect("/login"))
         .catch(error => next(error))
 })
 
@@ -54,7 +54,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         .catch(error => next(error))
 })
 
-router.get("/logout", (req, res, next) => {
+router.get("/logout", isLoggedIn, (req, res, next) => {
     req.session.destroy(() => res.redirect("/"))
 })
 

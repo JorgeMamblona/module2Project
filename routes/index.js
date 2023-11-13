@@ -12,7 +12,7 @@ module.exports = app => {
     app.use("/pokemon", pokemonRoutes)
 
     const trainerRoutes = require("./trainer.routes")
-    app.use("/trainer", trainerRoutes)
+    app.use("/trainers", trainerRoutes)
 
     const gymRoutes = require("./gym.routes")
     app.use("/gym", gymRoutes)
