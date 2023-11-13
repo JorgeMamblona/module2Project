@@ -8,10 +8,13 @@ const app = express()
 
 require("./config")(app)
 
+require("./config/session.config")(app)
+
 app.locals.appTitle = `POKEMON`
 
 require("./routes")(app)
 
 require("./error-handling")(app)
+
 
 module.exports = app
