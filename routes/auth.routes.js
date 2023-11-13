@@ -33,7 +33,23 @@ router.get("/login", (req, res, next) => {
 
 router.post("/login", (req, res, next) => {
 
-    //   const {}
+    const { email, password: plainPassword } = req.body
+
+    User
+        .findOne({ email })
+        .then(user => {
+            if (!user) {
+                res.render("auth/login", { errorMessage: "Email not registered" })
+                return
+            } else if (bcrypt.compareSync(plainPassword, user.password) === false) {
+                res.render("auth/login", { errorMessage: "Incorrect password" })
+                return
+            } else {
+                req.session.currentUser = user
+                res.redirect("/")
+            }
+        })
+        .catch(error => next(error))
 })
 
 module.exports = router
