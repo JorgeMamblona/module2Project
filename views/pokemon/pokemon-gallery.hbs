@@ -1,0 +1,13 @@
+<div class="container">
+    <h1>Here's where all our Pokémon will go</h1>
+    <div class="row">
+        {{#each formattedList}}
+        <div class="col-md-2">
+            <h3>{{name}}</h3>
+            <figure>
+                <img class="pokemonCard" src="{{image}}" alt="">
+            </figure>
+        </div>
+        {{/each}}
+    </div>
+</div>

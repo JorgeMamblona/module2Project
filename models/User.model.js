@@ -26,7 +26,7 @@ const userSchema = new Schema(
       default: 'https://i.stack.imgur.com/l60Hf.png'
     },
 
-    rank: {
+    role: {
       type: String,
       required: true,
       enum: ["Trainer", "Leader", "Admin"],

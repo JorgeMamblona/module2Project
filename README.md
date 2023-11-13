@@ -18,21 +18,21 @@
         </tr>
         <tr>
             <td>GET</td>
-            <td><code>/pokemons/gallery</code></td>
+            <td><code>/pokemon</code></td>
             <td>Pokemon gallery with filters</td>
             <td>public</td>
             <td></td>
         </tr>
         <tr>
             <td>GET</td>
-            <td><code>/pokemons/{id}</code></td>
+            <td><code>/pokemon/{id}</code></td>
             <td>Pokemon details</td>
             <td>public</td>
             <td></td>
         </tr>
         <tr>
             <td>GET</td>
-            <td><code>/trainers/gallery</code></td>
+            <td><code>/trainers</code></td>
             <td>Teams gallery</td>
             <td>trainer</td>
             <td></td>
@@ -77,6 +77,13 @@
             <td><code>/login</code></td>
             <td>Login in DB</td>
             <td>public</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>GET</td>
+            <td><code>/logout</code></td>
+            <td>Logout</td>
+            <td>trainer</td>
             <td></td>
         </tr>
         <tr>
