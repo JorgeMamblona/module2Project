@@ -1,4 +1,25 @@
-<div class="container">
+<div class="container mt-5">
+    <h1 class="pokename">{{styledName}}</h1>
+    <hr>
 
-    <h1>{{pokemon.name}}</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{image}}" alt="{{name}}" class="img-fluid">
+        </div>
+
+        <div class="col-md-6 mt-3">
+
+            {{!-- <h4>Height: {{height}}</h4>
+            <h4>Weight: {{weight}}</h4> --}}
+            <h4>Type: {{#each types}}{{type.name}}{{#unless @last}}, {{/unless}}{{/each}}</h4>
+
+
+            <h4>Stats:</h4>
+            {{#each stats}}
+            <ul>
+                <li>{{stat.name}}: {{base_stat}}</li>
+            </ul>
+            {{/each}}
+        </div>
+    </div>
 </div>

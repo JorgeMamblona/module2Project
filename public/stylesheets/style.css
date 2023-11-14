@@ -7,6 +7,19 @@
     background-color: rgb(255, 255, 255);
 }
 
-*/ .avatars {
-    height: 20px;
+
+body {
+    /* height: 100vh; */
+    /* background-image: url('./../images/pokeball2.png'); */
+    background-color: #F9E0DB;
+    /* background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%; */
+    background-position: absolute;
 }
+
+
+.avatars {
+    */ .avatars {
+        height: 20px;
+    }

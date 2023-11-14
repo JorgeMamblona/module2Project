@@ -12,4 +12,9 @@ router.get("/", isLoggedIn, (req, res, next) => {
 
 })
 
+router.get("/my-team", isLoggedIn, (req, res, next) => {
+
+    res.render("trainers/team")
+})
+
 module.exports = router
