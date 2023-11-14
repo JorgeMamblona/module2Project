@@ -8,6 +8,9 @@ const getID = require('../utils/getID')
 const sortByID = require('../utils/sortByID')
 const capitalize = require("../utils/capitalize")
 
+router.get('/finder', (req, res) => {
+    res.render('pokemon/pokemon-finder')
+})
 
 router.get("/:pokemon_name", (req, res, next) => {
 
@@ -18,12 +21,6 @@ router.get("/:pokemon_name", (req, res, next) => {
         .then(pokemon => res.render("pokemon/pokemon-details", pokemon))
         .catch(err => next(err))
 })
-
-
-router.get('/finder', (req, res) => {
-    res.render('pokemon/pokemon-finder')
-})
-
 
 router.get("/", (req, res, next) => {
 
