@@ -1,13 +1,38 @@
-<div class="container">
-    <h1>Here's where all our Pokémon will go</h1>
-    <div class="row">
-        {{#each formattedList}}
-        <div class="col-md-2">
-            <h3>{{name}}</h3>
-            <figure>
-                <img class="pokemonCard" src="{{image}}" alt="">
-            </figure>
+<div class="container mt-5">
+
+    <div class="container">
+        <h1>Pokémon Gallery</h1>
+        <div class="row">
+            {{#each formattedList}}
+            <div class="col-md-3">
+                <div class="card mb-4 border-info" style="width: 100%;">
+                    <img src="{{image}}" class="card-img-top" alt="{{name}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{name}}</h5>
+                        <div class="btn-group" role="group">
+                            <a href="/pokemon/{{name}}" class="btn btn-dark">See details</a>
+                            <a href="#" class="btn btn-dark">Add to favourites</a>
+                            <a href="#" class="btn btn-dark">Add to team</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
         </div>
-        {{/each}}
     </div>
+
 </div>
+
+
+{{!--
+<h1>Here's where all our Pokémon will go</h1>
+<div class="row">
+    {{#each formattedList}}
+    <div class="col-md-2">
+        <h3>{{name}}</h3>
+        <figure>
+            <img class="pokemonCard" src="{{image}}" alt="">
+        </figure>
+    </div>
+    {{/each}}
+</div> --}}

@@ -1,6 +1,7 @@
 const express = require('express')
 const Gym = require('../models/Gym.model')
 const User = require('../models/User.model')
+const { checkRole } = require('../middleware/route-guard')
 const router = express.Router()
 
 router.get("/gym-map", (req, res, next) => {
@@ -10,13 +11,13 @@ router.get("/gym-map", (req, res, next) => {
 })
 
 
-router.get("/create", (req, res, next) => {
+router.get("/create", checkRole("Leader", "Admin"), (req, res, next) => {
 
     res.render("gym/create")
 
 })
 
-router.post("/create", (req, res, next) => {
+router.post("/create", checkRole("Leader", "Admin"), (req, res, next) => {
 
     const { name, description, latitude, longitude } = req.body
     const owner_id = req.session.currentUser._id

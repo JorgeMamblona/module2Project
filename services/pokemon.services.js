@@ -15,6 +15,7 @@ class PokemonService {
 
     getOnePokemon(pokemon_name) {
         return this.axiosApp.get(`/pokemon/${pokemon_name}`)
+
     }
 }
 

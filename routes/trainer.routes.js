@@ -4,7 +4,6 @@ const User = require("../models/User.model")
 const { isLoggedIn } = require('../middleware/route-guard')
 
 router.get("/", isLoggedIn, (req, res, next) => {
-    console.log("-----------------------------------")
 
     User
         .find({ role: { $ne: "Admin" } })

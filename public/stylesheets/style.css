@@ -4,17 +4,18 @@
 
 #gymMap {
     height: 80vh;
-    background-color: red;
+    background-color: rgb(255, 255, 255);
 }
 
 
 body {
-    height: 100vh;
-    background-image: url('./../images/Vaporeon.webp');
-    background-repeat: no-repeat;
-    background-size: 20%;
-
-    background-position: bottom right;
+    /* height: 100vh; */
+    /* background-image: url('./../images/pokeball2.png'); */
+    background-color: #F9E0DB;
+    /* background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%; */
+    background-position: absolute;
 }
 
 
