@@ -10,6 +10,7 @@ class PokemonService {
 
     getAllPokemon() {
         return this.axiosApp.get("/pokemon?limit=386&offset=0")
+        // return this.axiosApp.get("/pokemon?limit=10000&offset=0")
     }
 
     getOnePokemon(pokemon_name) {
