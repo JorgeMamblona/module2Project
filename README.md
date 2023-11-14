@@ -25,6 +25,13 @@
         </tr>
         <tr>
             <td>GET</td>
+            <td><code>/finder</code></td>
+            <td>Pokemon finder</td>
+            <td>public</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>GET</td>
             <td><code>/pokemon/{id}</code></td>
             <td>Pokemon details</td>
             <td>public</td>

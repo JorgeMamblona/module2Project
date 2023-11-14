@@ -19,6 +19,12 @@ router.get("/:pokemon_name", (req, res, next) => {
         .catch(err => next(err))
 })
 
+
+router.get('/finder', (req, res) => {
+    res.render('pokemon/pokemon-finder')
+})
+
+
 router.get("/", (req, res, next) => {
 
     pokemonService

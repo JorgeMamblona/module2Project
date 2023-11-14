@@ -12,6 +12,11 @@ require("./config/session.config")(app)
 
 app.locals.appTitle = `POKEMON`
 
+app.use((req, res, next) => {
+    //app.locals.loggedUser = req.session.currentUSer
+    next()
+})
+
 require("./routes")(app)
 
 require("./error-handling")(app)
