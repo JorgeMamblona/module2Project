@@ -6,6 +6,12 @@ const getImage = require('../utils/getImage')
 const getID = require('../utils/getID')
 const sortByID = require('../utils/sortByID')
 
+
+router.get('/finder', (req, res) => {
+    res.render('pokemon/pokemon-finder')
+})
+
+
 router.get("/", (req, res, next) => {
 
     pokemonService
