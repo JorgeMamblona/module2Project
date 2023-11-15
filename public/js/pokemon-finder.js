@@ -28,18 +28,18 @@ document.querySelector('#inputByType').onkeyup = ev => {
                 const name = elm.pokemon.name
                 return pokemonService.getPokemonByID(name)
             })
-            Promise.all(promises).then(responses => {
-                responses.map(value => {
-                    if (value.data.id <= 351) {
-                        console.log(value.data.id)
-                        const image = value.data.sprites.other['official-artwork'].front_default
-                        const name = value.data.name
-                        formatedList.push({ name, image })
-                    }
-                })
-                printPokemonList(formatedList)
+            Promise.all(promises)
+                .then(responses => {
+                    responses.map(value => {
+                        if (value.data.id <= 151) {
+                            const image = value.data.sprites.other['official-artwork'].front_default
+                            const name = value.data.name
+                            formatedList.push({ name, image })
+                        }
+                    })
+                    printPokemonList(formatedList)
 
-            })
+                })
 
         })
         .catch(err => console.log('ok?'))
@@ -95,6 +95,7 @@ function printPokemonList(list) {
 
         pokemonAdd = document.createElement('a')
         pokemonAdd.classList.add("btn", "border-dark")
+        pokemonAdd.href = `/trainers/my-team/add/${elm.name}`
         pokemonAdd.innerHTML = 'Add to team'
         pokemonAdd.id = `${elm.name}_team`
 

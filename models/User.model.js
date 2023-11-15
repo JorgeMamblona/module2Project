@@ -32,10 +32,6 @@ const userSchema = new Schema(
       enum: ["Trainer", "Leader", "Admin"],
       default: "Trainer"
     },
-    team: {
-      type: Schema.Types.ObjectId,
-      ref: "Team"
-    },
     favorites: {
       type: [Number]
     },

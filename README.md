@@ -52,6 +52,13 @@
             <td></td>
         </tr>
         <tr>
+            <td>GET</td>
+            <td><code>/trainers/myteam/add/{id}</code></td>
+            <td>Add a pokemon to my team</td>
+            <td>owner</td>
+            <td></td>
+        </tr>
+        <tr>
             <td>POST</td>
             <td><code>/trainers/myteam/delete/{id}</code></td>
             <td>Delete a pokemon from my team</td>
@@ -140,7 +147,7 @@
             <td><code>/api/trainers</code></td>
             <td>API to request trainers</td>
             <td>API</td>
-            <td>✅</td>
+            <td>✅?</td>
         </tr>
         <tr>
             <td>GET</td>

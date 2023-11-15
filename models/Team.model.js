@@ -8,7 +8,7 @@ const teamSchema = new Schema(
             required: true
         },
         pokemon: {
-            type: [Number],
+            type: [String],
             validate: {
                 validator: pokemon => pokemon.length <= 6,
                 message: "Max number of Pokémon reached."

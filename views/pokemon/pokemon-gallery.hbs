@@ -3,7 +3,7 @@
     <div class="container">
         <h1>Pokémon Gallery</h1>
         <div class="row">
-            {{#each formattedList}}
+            {{#each pokemonList}}
             <div class="col-md-3">
                 <div class="card mb-4 border-info" style="width: 100%;">
                     <img src="{{image}}" class="card-img-top" alt="{{name}}">
@@ -22,17 +22,3 @@
     </div>
 
 </div>
-
-
-{{!--
-<h1>Here's where all our Pokémon will go</h1>
-<div class="row">
-    {{#each formattedList}}
-    <div class="col-md-2">
-        <h3>{{name}}</h3>
-        <figure>
-            <img class="pokemonCard" src="{{image}}" alt="">
-        </figure>
-    </div>
-    {{/each}}
-</div> --}}

@@ -2,6 +2,7 @@ const express = require("express")
 const bcrypt = require("bcryptjs")
 const User = require("../models/User.model")
 const { isLoggedOut, isLoggedIn } = require("../middleware/route-guard")
+const Team = require("../models/Team.model")
 const router = express.Router()
 const saltRounds = 10
 
@@ -21,10 +22,14 @@ router.post("/register", isLoggedOut, (req, res, next) => {
         .genSalt(saltRounds)
         .then(salt => bcrypt.hash(plainPassword, salt))
         .then(hashedPassword => {
-            console.log("creating user:", { username, email, password: hashedPassword, avatar })
-            User.create({ username, email, password: hashedPassword, avatar })
+            return User.create({ username, email, password: hashedPassword, avatar })
         })
-        .then(() => res.redirect("/login"))
+        .then((createdUser) => {
+            const owner = createdUser._id
+            Team
+                .create({ owner })
+            res.redirect("/login")
+        })
         .catch(error => next(error))
 })
 
