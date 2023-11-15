@@ -5,22 +5,19 @@ const { checkRole } = require('../middleware/route-guard')
 const router = express.Router()
 
 router.get("/gym-map", (req, res, next) => {
-
     res.render('gym/map')
-
 })
 
 
 router.get("/create", checkRole("Leader", "Admin"), (req, res, next) => {
-
     res.render("gym/create")
-
 })
+
 
 router.post("/create", checkRole("Leader", "Admin"), (req, res, next) => {
 
     const { name, description, latitude, longitude } = req.body
-    const owner_id = req.session.currentUser._id
+    const { _id: owner_id } = req.session.currentUser
     const location = {
         type: "Point",
         coordinates: [longitude, latitude]
@@ -29,7 +26,7 @@ router.post("/create", checkRole("Leader", "Admin"), (req, res, next) => {
     User
         .findById(owner_id)
         .then(ownerData => {
-            const owner = ownerData._id
+            const { _id: owner } = ownerData
             return Gym.create({ name, description, owner, location })
         })
         .then(() => res.redirect("/gym/gym-map"))

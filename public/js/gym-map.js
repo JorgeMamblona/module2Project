@@ -24,6 +24,7 @@ function getGymsFromAPI() {
 }
 
 function printGymsMarkers(gyms) {
+
     gyms.forEach(elm => {
 
         const position = {

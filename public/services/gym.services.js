@@ -6,6 +6,7 @@ class GymsService {
             baseURL: '/api/gyms'
         })
     }
+
     getAllGyms() {
         return this.axiosApp.get('/')
     }

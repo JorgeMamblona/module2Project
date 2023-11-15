@@ -6,16 +6,17 @@ class PokemonService {
             baseURL: 'https://pokeapi.co/api/v2/'
         })
     }
-    getAllPokemon() {
-        return this.axiosApp.get("/pokemon?limit=386&offset=0")
+
+    getAllPokemon(limit = 386, offset = 0) {
+        return this.axiosApp.get(`/pokemon?limit=${limit}&offset=${offset}`)
     }
 
     getPokemonByID(pokemonName) {
         return this.axiosApp.get(`/pokemon/${pokemonName}`)
 
     }
-    getPokemonByType(PokemonType) {
-        return this.axiosApp.get(`/type/${PokemonType}`)
+    getPokemonByType(pokemonType) {
+        return this.axiosApp.get(`/type/${pokemonType}`)
 
     }
 

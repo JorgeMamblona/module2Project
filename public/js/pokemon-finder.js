@@ -1,3 +1,5 @@
+const generations = require("../../consts/pokemon-generations")
+
 document.querySelector('#inputByName').onkeyup = ev => {
 
     const { value: pokemonName } = ev.target
@@ -5,21 +7,19 @@ document.querySelector('#inputByName').onkeyup = ev => {
     pokemonService
         .getPokemonByID(pokemonName)
         .then(response => {
-            if (response.data.id <= 151) {
+            if (response.data.id <= generations.first) {
                 printPokemonInfo(response.data)
             } else if (response.data.id) {
                 alert('Only 1st Gen pokemon')
             }
         })
-        .catch(err => new Error(err))
-
+        .catch(err => alert('NO HAY CON ESE NOMBRE, MELON'))
 }
 
 
 document.querySelector('#inputByType').onkeyup = ev => {
 
     const { value: PokemonType } = ev.target
-    let formatedList = []
 
     pokemonService
         .getPokemonByType(PokemonType)
@@ -28,18 +28,17 @@ document.querySelector('#inputByType').onkeyup = ev => {
                 const name = elm.pokemon.name
                 return pokemonService.getPokemonByID(name)
             })
-            Promise.all(promises)
-                .then(responses => {
-                    responses.map(value => {
-                        if (value.data.id <= 151) {
-                            const image = value.data.sprites.other['official-artwork'].front_default
-                            const name = value.data.name
-                            formatedList.push({ name, image })
-                        }
-                    })
-                    printPokemonList(formatedList)
-
-                })
+            return Promise.all(promises)
+        })
+        .then(responses => {
+            const formatedList = responses.map(value => {
+                if (value.data.id <= 151) {
+                    const image = value.data.sprites.other['official-artwork'].front_default
+                    const { name } = value.data
+                    return { name, image }
+                }
+            })
+            printPokemonList(formatedList)
 
         })
         .catch(err => console.log('ok?'))
@@ -63,6 +62,7 @@ function printPokemonList(list) {
     document.getElementById('pokemonList').appendChild(pokemonRow)
 
     list.forEach(elm => {
+
         pokemonCol = document.createElement('div')
         pokemonCol.classList.add('col-md-3')
         pokemonCol.id = `${elm.name}_card`

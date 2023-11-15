@@ -1,4 +1,5 @@
 module.exports = app => {
+
     const indexRoutes = require("./index.routes")
     app.use("/", indexRoutes)
 
@@ -16,5 +17,4 @@ module.exports = app => {
 
     const gymRoutes = require("./gym.routes")
     app.use("/gym", gymRoutes)
-
 }

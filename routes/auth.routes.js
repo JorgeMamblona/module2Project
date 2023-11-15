@@ -25,11 +25,10 @@ router.post("/register", isLoggedOut, (req, res, next) => {
             return User.create({ username, email, password: hashedPassword, avatar })
         })
         .then((createdUser) => {
-            const owner = createdUser._id
-            Team
-                .create({ owner })
-            res.redirect("/login")
+            const { _id: owner } = createdUser
+            return Team.create({ owner })
         })
+        .then(() => res.redirect("/login"))
         .catch(error => next(error))
 })
 

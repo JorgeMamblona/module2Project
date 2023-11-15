@@ -3,7 +3,7 @@ const router = express.Router()
 
 const Gym = require('./../models/Gym.model')
 
-router.get("/gyms", (req, res, next) => {
+router.get("/gyms", (req, res) => {
 
     Gym
         .find()

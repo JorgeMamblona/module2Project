@@ -12,19 +12,18 @@ router.get("/:pokemon_name", (req, res, next) => {
 
     const { pokemon_name } = req.params
 
-
     pokemonService
         .getOnePokemon(pokemon_name.toLowerCase())
         .then(pokemon => {
-            // res.send(pokemon.data)
 
-            const styledName = capitalize(pokemon.data.name)
-            const image = pokemon.data.sprites.other['official-artwork'].front_default
-            const height = pokemon.data.height
-            const weight = pokemon.data.weight
-            const stats = pokemon.data.stats
-            const types = pokemon.data.types
-            console.log(stats)
+            const {
+                styledName = capitalize(pokemon.data.name),
+                image = pokemon.data.sprites.other['official-artwork'].front_default,
+                height,
+                weight,
+                stats,
+                types
+            } = pokemon.data
 
             res.render("pokemon/pokemon-details", { styledName, image, height, weight, stats, types })
         })
@@ -39,8 +38,6 @@ router.get("/", (req, res, next) => {
             console.log('entro')
             console.log(pokemonList)
             res.render('pokemon/pokemon-gallery', { pokemonList })
-
-
         })
         .catch(err => next(err))
 })

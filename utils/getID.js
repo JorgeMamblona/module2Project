@@ -1,3 +1,5 @@
+// TODO: ELIMINAR
+
 const pokemonService = require("../services/pokemon.services")
 async function getID(pokemon_name) {
     const data = await pokemonService
