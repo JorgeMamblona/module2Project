@@ -35,8 +35,6 @@ router.get("/", (req, res, next) => {
     pokemonService
         .getAllPokemonAndImages()
         .then(pokemonList => {
-            console.log('entro')
-            console.log(pokemonList)
             res.render('pokemon/pokemon-gallery', { pokemonList })
         })
         .catch(err => next(err))

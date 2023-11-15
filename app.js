@@ -11,7 +11,7 @@ require("./config/session.config")(app)
 app.locals.appTitle = `POKEMON`
 
 app.use((req, res, next) => {
-    //app.locals.loggedUser = req.session.currentUSer
+    app.locals.loggedUser = req.session.currentUser
     next()
 })
 

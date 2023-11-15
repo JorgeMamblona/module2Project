@@ -32,6 +32,11 @@ router.post("/create", checkRole("Leader", "Admin"), (req, res, next) => {
         .then(() => res.redirect("/gym/gym-map"))
         .catch(err => next(err))
 
+
+
+
+
+
 })
 
 module.exports = router

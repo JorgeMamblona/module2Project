@@ -1,0 +1,32 @@
+<div class="container mt-5">
+    <h1>Hello, {{loggedUser.username}}!</h1>
+    <hr>
+
+    <h2>Your Team</h2>
+
+    <div class="row">
+        {{#each pokemonList}}
+        <div class="col-md-2">
+            <div class="card mb-4 border-info" style="width: 100%;">
+                <img src="{{image}}" class="card-img-top" alt="{{name}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{name}}</h5>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="/pokemon/{{name}}" class="btn btn-dark">Details</a>
+                        </div>
+                        <div class="col-md-4">
+                            <form action="/trainers/my-team/delete/{{name}}" method="post">
+                                <input class="btn btn-danger" type="submit" value="Remove">
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+</div>

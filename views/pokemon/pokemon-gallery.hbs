@@ -8,11 +8,10 @@
                 <div class="card mb-4 border-info" style="width: 100%;">
                     <img src="{{image}}" class="card-img-top" alt="{{name}}">
                     <div class="card-body">
-                        <h5 class="card-title">{{name}}</h5>
-                        <div class="btn-group" role="group">
+                        <h5 class="card-title text-left">{{name}}</h5>
+                        <div class="text-center" role="group">
                             <a href="/pokemon/{{name}}" class="btn btn-dark">See details</a>
-                            <a href="#" class="btn btn-dark">Add to favourites</a>
-                            <a href="#" class="btn btn-dark">Add to team</a>
+                            <a href="/trainers/my-team/add/{{name}}" class="btn border-dark">Add to team</a>
                         </div>
                     </div>
                 </div>

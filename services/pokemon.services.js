@@ -1,5 +1,4 @@
 const axios = require("axios")
-const capitalize = require("../utils/capitalize")
 const sortByID = require("../utils/sortByID")
 
 class PokemonService {
@@ -52,7 +51,7 @@ class PokemonService {
                     responses.map(pokemon => {
                         const id = pokemon.data.id
                         const image = pokemon.data.sprites.other['official-artwork'].front_default
-                        const name = pokemon.data.name
+                        const name = pokemon.data.name.toUpperCase()
                         formattedList.push({ id, name, image })
                         formattedList.sort(sortByID)
                     })
