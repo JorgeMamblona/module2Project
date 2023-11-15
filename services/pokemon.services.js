@@ -37,27 +37,31 @@ class PokemonService {
     }
 
     getAllPokemonAndImages() {
-        const formattedList = []
-        return this.getAllPokemon()
-            .then(pokelist => {
-                const promises = pokelist.data.results.map(elm => {
-                    const name = elm.name
-                    return this.getOnePokemon(name)
-                })
-                Promise.all(promises)
-                    .then(responses => {
-                        responses.map(pokemon => {
-                            const id = pokemon.data.id
-                            const image = pokemon.data.sprites.other['official-artwork'].front_default
-                            const name = pokemon.data.name
-                            formattedList.push({ id, name, image })
-                            formattedList.sort(sortByID)
-                        })
-                        console.log('terminado')
-                    })
 
-            })
-            .catch(err => console.log(err))
+        return new Promise((resolve, reject) => {
+            const formattedList = []
+            this.getAllPokemon()
+                .then(pokelist => {
+                    const promises = pokelist.data.results.map(elm => {
+                        const name = elm.name
+                        return this.getOnePokemon(name)
+                    })
+                    return Promise.all(promises)
+                })
+                .then(responses => {
+                    responses.map(pokemon => {
+                        const id = pokemon.data.id
+                        const image = pokemon.data.sprites.other['official-artwork'].front_default
+                        const name = pokemon.data.name
+                        formattedList.push({ id, name, image })
+                        formattedList.sort(sortByID)
+                    })
+                    console.log('terminado')
+                    resolve(formattedList)
+                })
+                .catch(err => reject(err))
+
+        })
 
     }
 
