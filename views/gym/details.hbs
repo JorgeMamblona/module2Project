@@ -1,6 +1,5 @@
-<div class="container mt-5">
+<div class="container mt-3">
     <h1>{{gym.name}}</h1>
-    <hr>
     <h4><b>Leader:</b> {{gym.owner.username}}</h4>
     <div class="container">
         <div class="row">
@@ -14,7 +13,7 @@
     </div>
     {{#if isOwner}}
     <div class="d-flex justify-content-start">
-        <a href="/gym/edit/{{id}}" class="btn btn-dark btn-sm mr-2">Edit</a>
+        <a href="/gym/edit/{{id}}" class="btn btn-dark btn-sm mr-2 me-3">Edit</a>
         <form action="/gym/delete/{{id}}" method="POST">
             <input type="submit" value="Delete" class="btn btn-danger btn-sm">
         </form>
