@@ -2,11 +2,15 @@
     width: 100%
 }
 
+body {
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+
 #gymMap {
     height: 70vh;
     background-color: rgb(255, 255, 255)
 }
-
 
 body {
     /* height: 100vh; */
@@ -19,9 +23,7 @@ body {
     background-position: absolute
 }
 
-
 .avatars {
-
     height: 20px
 }
 
