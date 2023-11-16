@@ -2,12 +2,12 @@ const Gym = require('../models/Gym.model')
 const User = require('../models/User.model')
 
 //GYM MAP
-const gymMapRender = (req, res, next) => {
+const gymMapRender = (req, res) => {
     res.render('gym/map')
 }
 
 //CREATE GYM
-const gymCreateRender = (req, res, next) => {
+const gymCreateRender = (req, res) => {
     res.render("gym/create")
 }
 
@@ -76,8 +76,9 @@ const gymDetailsRender = (req, res, next) => {
 
     Gym
         .findById(gym_id)
+        .populate("owner")
         .then(gym => {
-            if (gym.owner.toString() === sessionOwner) {
+            if (gym.owner._id.toString() === sessionOwner) {
                 isOwner = true
             }
             res.render("gym/details", { gym, isOwner })

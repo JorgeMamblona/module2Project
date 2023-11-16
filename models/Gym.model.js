@@ -17,6 +17,10 @@ const gymSchema = new Schema(
             ref: "User",
             required: true
         },
+        image: {
+            type: String,
+            default: 'https://static1.thegamerimages.com/wordpress/wp-content/uploads/2022/07/pokemon-gym-2.jpeg'
+        },
         location: {
             type: {
                 type: String

@@ -2,25 +2,41 @@
     width: 100%
 }
 
-body {
-    font-family: 'Pixelify Sans', sans-serif;
+.pokemon-card-text {
+    font-family: sans-serif;
 }
 
+.navbar-logo {
+    width: 50px;
+}
+
+.custom-navbar {
+    border-bottom: 2px solid rgb(200, 200, 17);
+}
 
 #gymMap {
     height: 70vh;
     background-color: rgb(255, 255, 255)
 }
 
-body {
-    /* height: 100vh; */
-    background-image: url('./../images/background.jpg');
+.gym-image {
+    width: 400px;
+    border-radius: 5%;
+    box-shadow: 5px black;
+}
 
-    /* background-color: #F9E0DB;
-    /* background-repeat: no-repeat; */
+body {
+    background-image: url('./../images/background.jpg');
     background-attachment: fixed;
     background-size: 100%;
-    background-position: absolute
+    background-position: absolute;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.gym-description {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: lighter;
+    font-size: medium;
 }
 
 .avatars {
