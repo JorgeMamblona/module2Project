@@ -23,3 +23,90 @@ body {
 
     height: 20px;
 }
+
+.navAvatar {
+    width: 50%;
+    vertical-align: center;
+}
+
+.bodyBackground {
+    background-image: url(../images/backgroundCards/cardBodyBackground.jpg);
+}
+
+.backgroundImageAdjust {
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+}
+
+.backgroundType_normal {
+    background-image: url(../images/backgroundCards/normal.png);
+}
+
+.backgroundType_fighting {
+    background-image: url(../images/backgroundCards/fighting.png);
+}
+
+.backgroundType_flying {
+    background-image: url(../images/backgroundCards/flying.png);
+}
+
+.backgroundType_poison {
+    background-image: url(../images/backgroundCards/poison.png);
+}
+
+.backgroundType_ground {
+    background-image: url(../images/backgroundCards/ground.png);
+}
+
+.backgroundType_rock {
+    background-image: url(../images/backgroundCards/rock.png);
+}
+
+.backgroundType_bug {
+    background-image: url(../images/backgroundCards/bug.png);
+}
+
+.backgroundType_ghost {
+    background-image: url(../images/backgroundCards/ghost.png);
+}
+
+.backgroundType_steel {
+    background-image: url(../images/backgroundCards/steel.png);
+}
+
+.backgroundType_fire {
+    background-image: url(../images/backgroundCards/fire.png);
+}
+
+.backgroundType_water {
+    background-image: url(../images/backgroundCards/water.png);
+}
+
+.backgroundType_grass {
+    background-image: url(../images/backgroundCards/grass.png);
+}
+
+.backgroundType_electric {
+    background-image: url(../images/backgroundCards/electric.png);
+}
+
+.backgroundType_psychic {
+    background-image: url(../images/backgroundCards/psychic.png);
+}
+
+.backgroundType_ice {
+    background-image: url(../images/backgroundCards/ice.png);
+}
+
+.backgroundType_dragon {
+    background-image: url(../images/backgroundCards/dragon.png);
+}
+
+.backgroundType_dark {
+    background-image: url(../images/backgroundCards/dark.png);
+}
+
+.backgroundType_fairy {
+    background-image: url(../images/backgroundCards/fairy.png);
+}

@@ -122,6 +122,13 @@
             <td></td>
         </tr>
         <tr>
+            <td>POST</td>
+            <td><code>/gym/details/{id}</code></td>
+            <td>Gym Details</td>
+            <td>leader</td>
+            <td></td>
+        </tr>
+        <tr>
             <td>GET</td>
             <td><code>/gym/edit/{id}</code></td>
             <td>Edit a gym</td>

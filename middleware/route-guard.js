@@ -26,26 +26,8 @@ const checkRole = (...admittedRoles) => (req, res, next) => {
     }
 }
 
-// const renderNavbar = (req, res, next) => {
-
-//     const role = req.session.currentUser.role
-
-//     if(!req.session.currentUser){
-//         res.locals.navbar = "default-navbar"
-//     }
-
-//     else if (req.session.currentUser){
-//         if (role === "Trainer"){
-//             res.locals.navbar = "trainer-navbar"
-//         }
-//     }
-
-//     //check if user is logged in - show one bar if not.
-//     //if user IS logged in, show different navbars depending on user role.
-// }
-
 module.exports = {
     isLoggedIn,
     isLoggedOut,
-    checkRole
+    checkRole,
 }

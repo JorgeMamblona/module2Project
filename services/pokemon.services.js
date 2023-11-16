@@ -1,5 +1,6 @@
 const axios = require("axios")
 const sortByID = require("../utils/sortByID")
+const generations = require("../consts/pokemon-generations")
 
 class PokemonService {
 
@@ -10,7 +11,7 @@ class PokemonService {
     }
 
     getAllPokemon() {
-        return this.axiosApp.get("/pokemon?limit=10&offset=0")
+        return this.axiosApp.get(`/pokemon?limit=${generations.first}&offset=0`)
         // return this.axiosApp.get("/pokemon?limit=10000&offset=0")
     }
 
@@ -52,10 +53,13 @@ class PokemonService {
                         const id = pokemon.data.id
                         const image = pokemon.data.sprites.other['official-artwork'].front_default
                         const name = pokemon.data.name.toUpperCase()
-                        formattedList.push({ id, name, image })
-                        formattedList.sort(sortByID)
+                        const type = pokemon.data.types[0].type.name
+
+                        if (id <= generations.all) {
+                            formattedList.push({ id, name, image, type })
+                            formattedList.sort(sortByID)
+                        }
                     })
-                    console.log('terminado')
                     resolve(formattedList)
                 })
                 .catch(err => reject(err))

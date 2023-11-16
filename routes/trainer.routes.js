@@ -12,8 +12,8 @@ router.get("/my-team/add/:pokemon_name", isLoggedIn, (req, res, next) => {
     const { _id: owner } = req.session.currentUser
 
     Team
-        .findOneAndUpdate({ owner }, { runValidators: true }, { $push: { pokemon } })
-        .then(() => res.redirect("/pokemon"))
+        .findOneAndUpdate({ owner }, { $push: { pokemon } })
+        .then(() => res.redirect("/trainers/my-team"))
         .catch(err => next(err))
 
 })

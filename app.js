@@ -7,11 +7,18 @@ const app = express()
 
 require("./config")(app)
 require("./config/session.config")(app)
+require("./middleware/route-guard")
 
 app.locals.appTitle = `POKEMON`
 
 app.use((req, res, next) => {
     app.locals.loggedUser = req.session.currentUser
+    if (app.locals.loggedUser) {
+        app.locals.isLeader = req.session.currentUser.role === 'Leader'
+    } else {
+        app.locals.isLeader = false
+    }
+    console.log(app.locals.isLeader)
     next()
 })
 
