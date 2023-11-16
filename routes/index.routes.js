@@ -1,10 +1,8 @@
-// TODO: resolver esto
-
 const express = require('express')
 const router = express.Router()
 
-router.get("/", (req, res, next) => {
-  res.render("index")
-})
+const indexRender = require('../controllers/index.controllers')
+
+router.get("/", indexRender)
 
 module.exports = router

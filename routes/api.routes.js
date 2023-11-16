@@ -1,15 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
-const Gym = require('./../models/Gym.model')
+const { getGyms } = require('../controllers/api.controllers')
 
-router.get("/gyms", (req, res) => {
-
-    Gym
-        .find()
-        .then(gyms => res.json(gyms))
-        .catch(err => res.status(500).json({ message: 'Server issue D:', errorDetails: err }))
-})
+router.get("/gyms", getGyms)
 
 
 module.exports = router
