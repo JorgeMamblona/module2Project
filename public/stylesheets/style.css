@@ -33,6 +33,10 @@ body {
     font-family: 'Pixelify Sans', sans-serif;
 }
 
+.img-fluid {
+    width: 400px
+}
+
 .gym-description {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: lighter;
