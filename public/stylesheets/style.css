@@ -3,7 +3,7 @@
 }
 
 #gymMap {
-    height: 80vh;
+    height: 70vh;
     background-color: rgb(255, 255, 255)
 }
 
@@ -110,4 +110,8 @@ body {
 
 .backgroundType_fairy {
     background-image: url(../images/backgroundCards/fairy.png)
+}
+
+.myTeamCard {
+    font-size: small
 }

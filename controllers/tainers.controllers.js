@@ -10,8 +10,16 @@ const addToTeamRender = (req, res, next) => {
     pokemon = pokemon.toLowerCase()
     const { _id: owner } = req.session.currentUser
 
+    const opts = { runValidators: true } // NOT WORKING
+
     Team
-        .findOneAndUpdate({ owner }, { $push: { pokemon } })
+        .findOne({ owner })
+        .then(team => {
+            console.log(team.pokemon.length)
+            if (team.pokemon.length < 6) {
+                return Team.findOneAndUpdate({ owner }, { $push: { pokemon } }, opts)
+            }
+        })
         .then(() => res.redirect("/trainers/my-team"))
         .catch(err => next(err))
 
@@ -55,7 +63,8 @@ const myTeamRender = (req, res, next) => {
                 const image = value.data.sprites.other['official-artwork'].front_default
                 let { name } = value.data
                 name = name.toUpperCase()
-                return { name, image }
+                const type = value.data.types[0].type.name
+                return { name, image, type }
             })
             res.render("trainers/my-team", { pokemonList })
         })

@@ -125,13 +125,13 @@ function printPokemonCard(elm) {
     pokemonBtns.id = `${elm.name}_btns`
 
     pokemonDtls = document.createElement('a')
-    pokemonDtls.classList.add("btn", "btn-secondary", "me-3")
+    pokemonDtls.classList.add("btn", "btn-sm", "btn-light", "me-3")
     pokemonDtls.href = `/pokemon/${elm.name}`
-    pokemonDtls.innerHTML = 'See Details'
+    pokemonDtls.innerHTML = 'Details'
     pokemonDtls.id = `${elm.name}_dtls`
 
     pokemonAdd = document.createElement('a')
-    pokemonAdd.classList.add("btn", "btn-secondary")
+    pokemonAdd.classList.add("btn", "btn-sm", "btn-secondary")
     pokemonAdd.href = `/trainers/my-team/add/${elm.name}`
     pokemonAdd.innerHTML = 'Add to team'
     pokemonAdd.id = `${elm.name}_team`

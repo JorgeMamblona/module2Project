@@ -1,28 +1,28 @@
-<div class="container mt-5">
-    <h1>Hello, {{loggedUser.username}}!</h1>
-    <hr>
-
-    <h2>Your Team</h2>
+<div class="container mt-3">
+    <h1>{{loggedUser.username}}'s team!</h1>
 
     <div class="row">
         {{#each pokemonList}}
         <div class="col-md-2">
-            <div class="card mb-4 border-info" style="width: 100%;">
+            <div class="card mb-4 border shadow p-3 bg-body rounded backgroundImageAdjust backgroundType_{{type}}"
+                style="width: 100%;">
                 <img src="{{image}}" class="card-img-top" alt="{{name}}">
                 <div class="card-body">
-                    <h5 class="card-title">{{name}}</h5>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <a href="/pokemon/{{name}}" class="btn btn-dark">Details</a>
+                    <h5 class="card-title text-center bodyBackground border border-secondary-subtle rounded myTeamCard">
+                        {{name}}
+                    </h5>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <div class="col block">
+                            <a href="/pokemon/{{name}}" class="btn btn-sm btn-secondary me-3">Details</a>
                         </div>
-                        <div class="col-md-4">
-                            <form action="/trainers/my-team/delete/{{name}}" method="post">
-                                <input class="btn btn-danger" type="submit" value="Remove">
-                            </form>
-                        </div>
-
                     </div>
-
+                </div>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <div class="col text-center">
+                    <form action="/trainers/my-team/delete/{{name}}" method="post">
+                        <input class="btn btn-sm btn-danger" type="submit" value="Remove">
+                    </form>
                 </div>
             </div>
         </div>

@@ -1,7 +1,9 @@
 <div class="container mt-5">
 
     <div class="container">
-        <h1>Pokémon Gallery</h1>
+        <div class="row justify-content-center">
+            <h2>Pokémon Gallery</h2>
+        </div>
         <div class="row">
             {{#each pokemonList}}
             <div class="col-md-3">
@@ -13,8 +15,8 @@
                             {{name}}</h5>
                         {{#if ../loggedUser}}
                         <div class="text-center" role="group">
-                            <a href="/pokemon/{{name}}" class="btn btn-light me-3">Details</a>
-                            <a href="/trainers/my-team/add/{{name}}" class="btn btn-secondary">Add to
+                            <a href="/pokemon/{{name}}" class="btn btn-sm btn-light me-3">Details</a>
+                            <a href="/trainers/my-team/add/{{name}}" class="btn btn-sm btn-secondary">Add to
                                 team</a>
                         </div>
                         {{/if}}
