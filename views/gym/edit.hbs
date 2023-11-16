@@ -4,32 +4,35 @@
 
         <div class="col-md-6 mt-4">
 
-            <h1>Create a Gym</h1>
+            <h1>Edit your gym</h1>
             <hr>
 
-            <form action="/gym/create" method="POST">
+            <form action="/gym/edit/{{_id}}" method="POST">
 
                 <div class="mb-3 row">
                     <div class="col-12">
                         <label for="name" class="form-label">Name*</label>
-                        <input type="text" class="form-control" id="name" name="name">
+                        <input type="text" class="form-control" id="name" name="name" value="{{name}}">
                     </div>
                     <div class="col-12">
                         <label for="description" class="form-label">Description</label>
-                        <input type="text" class="form-control" id="description" name="description">
+                        <input type="text" class="form-control" id="description" name="description"
+                            value="{{description}}">
                     </div>
                     <div class="col-md-6">
                         <label for="latitude" class="form-label">Latitude*</label>
-                        <input type="text" class="form-control" id="latitude" name="latitude">
+                        <input type="text" class="form-control" id="latitude" name="latitude"
+                            value="{{location.coordinates.[1]}}">
                     </div>
                     <div class="col-md-6">
                         <label for="longitude" class="form-label">Longitude*</label>
-                        <input type="text" class="form-control" id="longitude" name="longitude">
+                        <input type="text" class="form-control" id="longitude" name="longitude"
+                            value="{{location.coordinates.[0]}}">
                     </div>
                 </div>
 
                 <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-dark block">Create Gym</button>
+                    <button type="submit" class="btn btn-dark block">Edit gym</button>
                 </div>
 
             </form>

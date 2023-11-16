@@ -1,0 +1,11 @@
+<div class="container mt-5">
+    <h1>{{name}}</h1>
+    <hr>
+    <h3>{{description}}</h3>
+    <div class="d-flex justify-content-start">
+        <a href="/gym/edit/{{id}}" class="btn btn-dark btn-sm mr-2">Edit</a>
+        <form action="/gym/delete/{{id}}" method="POST">
+            <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+        </form>
+    </div>
+</div>

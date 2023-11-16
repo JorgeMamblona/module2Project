@@ -32,10 +32,13 @@ function printGymsMarkers(gyms) {
             lng: elm.location.coordinates[0]
         }
 
-        new google.maps.Marker({
+        const gymMarker = new google.maps.Marker({
             map: gymMap,
             position,
             title: elm.name
+        })
+        gymMarker.addListener("click", () => {
+            setTimeout(() => location.href = `http://localhost:5005/gym/details/${elm._id}`, 200)
         })
     })
 }

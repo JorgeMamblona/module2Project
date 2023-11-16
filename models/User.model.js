@@ -31,13 +31,6 @@ const userSchema = new Schema(
       required: true,
       enum: ["Trainer", "Leader", "Admin"],
       default: "Trainer"
-    },
-    favorites: {
-      type: [Number]
-    },
-    gym: {
-      type: Schema.Types.ObjectId,
-      ref: "Gym"
     }
   },
   {
