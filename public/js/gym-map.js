@@ -35,7 +35,8 @@ function printGymsMarkers(gyms) {
         const gymMarker = new google.maps.Marker({
             map: gymMap,
             position,
-            title: elm.name
+            title: elm.name,
+            icon: '../images/mapIcon.png'
         })
         gymMarker.addListener("click", () => {
             setTimeout(() => location.href = `http://localhost:5005/gym/details/${elm._id}`, 200)
