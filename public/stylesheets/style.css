@@ -117,3 +117,9 @@ body {
 .myTeamCard {
     font-size: small
 }
+
+.teamListCardTitle {
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position: absolute
+}

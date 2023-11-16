@@ -6,9 +6,10 @@ const pokemonService = require('../services/pokemon.services')
 //ADD TO TEAM
 const addToTeamRender = (req, res, next) => {
 
+    const { _id: owner } = req.session.currentUser
+
     let { pokemon_name: pokemon } = req.params
     pokemon = pokemon.toLowerCase()
-    const { _id: owner } = req.session.currentUser
 
     const opts = { runValidators: true } // NOT WORKING
 
@@ -43,7 +44,26 @@ const trainersListRender = (req, res, next) => {
 
     User
         .find({ role: { $ne: "Admin" } })
-        .then(trainers => res.render("trainers/list", { trainers }))
+        .then(trainers => {
+            const promises = trainers.map(eachTrainer => {
+                const owner = eachTrainer._id.toString()
+
+                return Team.findOne({ owner }).populate('owner')
+
+            })
+            return Promise.all(promises)
+        })
+        .then(teams => {
+            return teams.map(eachTrainer => {
+                return result = {
+                    username: eachTrainer.owner.username,
+                    team: eachTrainer.pokemon
+                }
+            })
+        })
+        .then(response => {
+            res.render("trainers/list", { response })
+        })
         .catch(err => next(err))
 }
 

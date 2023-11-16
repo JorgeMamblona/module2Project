@@ -25,6 +25,7 @@ class PokemonService {
         return this.getOnePokemon(pokemon_name)
             .then((pokemon) => {
                 const image = pokemon.data.sprites.other['official-artwork'].front_default
+                return image
             })
             .catch(err => console.log(err))
     }

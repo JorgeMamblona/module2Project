@@ -7,7 +7,7 @@ const generations = {
 let minToStart = 0
 
 document.querySelector('#inputByName').onkeyup = ev => {
-    if (minToStart > 3) {
+    if (minToStart >= 2) {
 
         const { value: pokemonName } = ev.target
 
@@ -29,7 +29,7 @@ document.querySelector('#inputByName').onkeyup = ev => {
 
 
 document.querySelector('#inputByType').onkeyup = ev => {
-    if (minToStart >= 3) {
+    if (minToStart >= 2) {
 
         const { value: PokemonType } = ev.target
 

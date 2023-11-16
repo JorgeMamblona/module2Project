@@ -8,7 +8,7 @@ const {
     deleteFromTeamRender,
     trainersListRender,
     myTeamRender
-} = require('../controllers/tainers.controllers')
+} = require('../controllers/trainers.controllers')
 
 
 router.get("/my-team/add/:pokemon_name", isLoggedIn, addToTeamRender)
