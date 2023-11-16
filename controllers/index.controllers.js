@@ -1,6 +1,6 @@
 //HOME PAGE
 const indexRender = (req, res, next) => {
-    res.render("index")
+    res.redirect("/pokemon")
 }
 
 module.exports = indexRender

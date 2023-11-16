@@ -178,7 +178,7 @@ function renderMap() {
     gymMap = new google.maps.Map(
         document.querySelector("#gymMap"),
         {
-            zoom: 15,
+            zoom: 13,
             center: initialCoords,
             styles: customMapStyles
         }
@@ -205,10 +205,10 @@ function printGymsMarkers(gyms) {
             map: gymMap,
             position,
             title: elm.name,
-            icon: '../images/mapIcon.png'
+            icon: '../images/mapIcon.png',
         })
         gymMarker.addListener("click", () => {
-            setTimeout(() => location.href = `http://localhost:5005/gym/details/${elm._id}`, 200)
+            setTimeout(() => location.href = `/gym/details/${elm._id}`, 200)
         })
     })
 }
