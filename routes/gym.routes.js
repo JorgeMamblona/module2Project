@@ -15,7 +15,7 @@ const {
 } = require('../controllers/gym.controllers')
 
 
-router.get("/gym-map", isLoggedIn, gymMapRender)
+router.get("/gym-map", isLoggedIn, checkRole("Trainer", "Leader", "Admin"), gymMapRender)
 
 router.get("/create", isLoggedIn, checkRole("Leader", "Admin"), gymCreateRender)
 router.post("/create", isLoggedIn, checkRole("Leader", "Admin"), gymCreateHandler)
