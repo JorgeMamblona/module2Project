@@ -145,4 +145,3 @@ function printPokemonCard(elm) {
     document.getElementById(pokemonBtns.id).appendChild(pokemonDtls)
     document.getElementById(pokemonBtns.id).appendChild(pokemonAdd)
 }
-

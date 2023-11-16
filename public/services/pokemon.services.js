@@ -19,7 +19,6 @@ class PokemonService {
         return this.axiosApp.get(`/type/${pokemonType}`)
 
     }
-
 }
 
 const pokemonService = new PokemonService()

@@ -10,7 +10,6 @@ class GymsService {
     getAllGyms() {
         return this.axiosApp.get('/')
     }
-
 }
 
 const gymService = new GymsService()

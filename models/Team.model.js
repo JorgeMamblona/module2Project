@@ -17,10 +17,8 @@ const teamSchema = new Schema(
     },
     {
         timestamps: true
-
     }
 )
-
 
 const Team = model("Team", teamSchema)
 

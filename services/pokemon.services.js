@@ -1,4 +1,5 @@
 const axios = require("axios")
+
 const sortByID = require("../utils/sortByID")
 const generations = require("../consts/pokemon-generations")
 
@@ -63,15 +64,10 @@ class PokemonService {
                     resolve(formattedList)
                 })
                 .catch(err => reject(err))
-
         })
-
     }
-
 }
 
 const pokemonService = new PokemonService()
 
 module.exports = pokemonService
-
-
