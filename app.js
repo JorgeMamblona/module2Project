@@ -18,7 +18,6 @@ app.use((req, res, next) => {
     } else {
         app.locals.isLeader = false
     }
-    console.log(app.locals.isLeader)
     next()
 })
 

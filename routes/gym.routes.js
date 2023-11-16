@@ -1,20 +1,20 @@
 const express = require('express')
 const Gym = require('../models/Gym.model')
 const User = require('../models/User.model')
-const { checkRole } = require('../middleware/route-guard')
+const { checkRole, isLoggedIn } = require('../middleware/route-guard')
 const router = express.Router()
 
-router.get("/gym-map", (req, res, next) => {
+router.get("/gym-map", isLoggedIn, (req, res, next) => {
     res.render('gym/map')
 })
 
 
-router.get("/create", checkRole("Leader", "Admin"), (req, res, next) => {
+router.get("/create", isLoggedIn, checkRole("Leader", "Admin"), (req, res, next) => {
     res.render("gym/create")
 })
 
 
-router.post("/create", checkRole("Leader", "Admin"), (req, res, next) => {
+router.post("/create", isLoggedIn, checkRole("Leader", "Admin"), (req, res, next) => {
 
     const { name, description, latitude, longitude } = req.body
     const { _id: owner_id } = req.session.currentUser
@@ -33,7 +33,7 @@ router.post("/create", checkRole("Leader", "Admin"), (req, res, next) => {
         .catch(err => next(err))
 })
 
-router.get("/edit/:gym_id", checkRole("Leader", "Admin"), (req, res, next) => {
+router.get("/edit/:gym_id", isLoggedIn, checkRole("Leader", "Admin"), (req, res, next) => {
 
     const { gym_id } = req.params
 
@@ -43,7 +43,7 @@ router.get("/edit/:gym_id", checkRole("Leader", "Admin"), (req, res, next) => {
         .catch(err => next(err))
 })
 
-router.post("/edit/:gym_id", checkRole("Leader", "Admin"), (req, res, next) => {
+router.post("/edit/:gym_id", isLoggedIn, checkRole("Leader", "Admin"), (req, res, next) => {
 
     const { gym_id } = req.params
     const { name, description, latitude, longitude } = req.body
@@ -58,7 +58,7 @@ router.post("/edit/:gym_id", checkRole("Leader", "Admin"), (req, res, next) => {
         .catch(err => next(err))
 })
 
-router.post("/delete/:gym_id", checkRole("Leader", "Admin"), (req, res, next) => {
+router.post("/delete/:gym_id", isLoggedIn, checkRole("Leader", "Admin"), (req, res, next) => {
 
     const { gym_id } = req.params
 
@@ -68,13 +68,20 @@ router.post("/delete/:gym_id", checkRole("Leader", "Admin"), (req, res, next) =>
         .catch(err => next(err))
 })
 
-router.get("/details/:gym_id", checkRole("Leader", "Admin"), (req, res, next) => {
+router.get("/details/:gym_id", isLoggedIn, (req, res, next) => {
 
     const { gym_id } = req.params
+    const { _id: sessionOwner } = req.session.currentUser
+    let isOwner = false
 
     Gym
         .findById(gym_id)
-        .then(gym => res.render("gym/details", gym))
+        .then(gym => {
+            if (gym.owner.toString() === sessionOwner) {
+                isOwner = true
+            }
+            res.render("gym/details", { gym, isOwner })
+        })
         .catch(err => next(err))
 })
 
