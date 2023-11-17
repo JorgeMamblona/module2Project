@@ -14,7 +14,7 @@ const registerHandler = (req, res, next) => {
     const { username, email, password: plainPassword } = req.body
     let { avatar } = req.body
 
-    if (!avatar) avatar = "../images/default_profile.png"
+    if (!avatar) avatar = "https://res.cloudinary.com/dn31sgzg7/image/upload/v1700208802/default_profile_ohxzpj.jpg"
 
     bcrypt
         .genSalt(saltRounds)
